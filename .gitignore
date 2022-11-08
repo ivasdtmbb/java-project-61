@@ -5,6 +5,7 @@
 
 .gradle
 .gradle/**/*
+.gradle/**
 
 build
 
@@ -17,3 +18,4 @@ bin
 
 .idea/
 .idea/**/*
+.idea/**
