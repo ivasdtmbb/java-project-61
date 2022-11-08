@@ -1,0 +1,8 @@
+// hexlet/code/App.java
+
+package hexlet.code;
+
+ static void main(String[] args) {
+        System.out.println("Welcome to the Brain Games!");
+    }
+}
