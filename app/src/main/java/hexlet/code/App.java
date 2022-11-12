@@ -3,8 +3,17 @@ package hexlet.code;
 
 public class App {
     public static void main(String[] args) {
-        System.out.println("Welcome to the Brain Games!");
-        Cli dialog = new Cli();
-        dialog.chat();
+        var userAnswer = StartMenu.start();
+
+        switch (userAnswer) {
+            case "1":
+                Cli.chat();
+                break;
+            case "2":
+                Even.start();
+            default:
+                break;
+        }
+
     }
 }
