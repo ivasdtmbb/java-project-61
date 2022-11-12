@@ -6,3 +6,6 @@
 
 ### Badge:
 <a href="https://codeclimate.com/github/ivasdtmbb/java-project-61/test_coverage"><img src="https://api.codeclimate.com/v1/badges/8b95aea90a0624924fb8/test_coverage" /></a>
+
+### Asciinema of EVEN game:
+https://asciinema.org/a/ZusnkaYu3ocn7tRoz6nW7Ehmk
