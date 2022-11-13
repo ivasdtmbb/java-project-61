@@ -9,3 +9,6 @@
 
 ### Asciinema of EVEN game:
 https://asciinema.org/a/ZusnkaYu3ocn7tRoz6nW7Ehmk
+
+### Asciinema of CALC game:
+https://asciinema.org/a/IlUFbocnnrsZGYhHwVWDr1NaN
