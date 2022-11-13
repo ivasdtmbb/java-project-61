@@ -3,14 +3,19 @@ package hexlet.code;
 
 public class App {
     public static void main(String[] args) {
-        var userAnswer = StartMenu.start();
+        var userAnswer = UserDialog.start();
+        var numberOfAttempts = 3;
 
         switch (userAnswer) {
             case "1":
-                Cli.chat();
+                Cli.start();
                 break;
             case "2":
-                Even.start();
+                Even.start(numberOfAttempts);
+                break;
+            case "3":
+                Calc.start(numberOfAttempts);
+                break;
             default:
                 break;
         }

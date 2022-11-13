@@ -4,24 +4,19 @@ import java.util.Scanner;
 
 public class Even {
 
-    public static void start() {
-        var userName = Cli.chat();
+    public static void start(int attempts) {
+        var userName = Cli.start();
+        String correctAnswer;
         Scanner scanner = new Scanner(System.in);
         var randomRange = 1000;
-        var attempts = 3;
 
         System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
 
         for (var i = 0; i < attempts; i++) {
 
-            var randNumber = Math.round(Math.random() * randomRange);
-            String correctAnswer;
+            var randNumber = RandomGenerator.generateLong(randomRange);
 
-            if (randNumber % 2 == 0) {
-                correctAnswer = "yes";
-            } else {
-                correctAnswer = "no";
-            }
+            correctAnswer = getResult(randNumber);
 
             System.out.println("Question: " + randNumber);
             System.out.print("Your Answer: ");
@@ -30,19 +25,19 @@ public class Even {
             if (userAnswer.equalsIgnoreCase(correctAnswer)) {
                 System.out.println("Correct!");
             } else {
-
-                String message = String.format(
-                        "'%s' is wrong answer ;(. Correct answer was '%s'.\n"
-                        + "Let's try again, %s!",
-                        userAnswer,
-                        correctAnswer,
-                        userName
-                );
-                System.out.println(message);
+                UserDialog.wrongAnswer(userName, correctAnswer, userName);
                 return;
             }
         }
 
         System.out.println("Congratulations, " + userName + "!");
+    }
+
+    public static String getResult(long randNumber) {
+        if (randNumber % 2 == 0) {
+            return "yes";
+        } else {
+            return "no";
+        }
     }
 }
