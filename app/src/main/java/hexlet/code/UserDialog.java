@@ -2,7 +2,7 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-public class StartMenu {
+public class UserDialog {
 
     public static String start() {
 
@@ -17,8 +17,17 @@ public class StartMenu {
                 + "0 - Exit\n");
 
         System.out.print("Your choice: ");
-        String userAnswer = scanner.nextLine();
+        return scanner.nextLine();
+    }
 
-        return userAnswer;
+    public static void wrongAnswer(String userAnswer, String correctAnswer, String userName) {
+        String message = String.format(
+                "'%s' is wrong answer ;(. Correct answer was '%s'.\n"
+                        + "Let's try again, %s!",
+                userAnswer,
+                correctAnswer,
+                userName
+        );
+        System.out.println(message);
     }
 }
