@@ -16,6 +16,8 @@ public class App {
             case "3":
                 Calc.start(numberOfAttempts);
                 break;
+            case "4":
+                GCD.start(numberOfAttempts);
             default:
                 break;
         }

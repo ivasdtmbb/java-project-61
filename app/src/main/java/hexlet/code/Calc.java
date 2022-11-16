@@ -17,9 +17,9 @@ public class Calc {
         System.out.println("What is the result of the expression?");
 
         for (var i = 0; i < attempts; i++) {
-            operator = operators[RandomGenerator.generateInt(operators.length - 1)];
-            number1 = RandomGenerator.generateInt(randomRange);
-            number2 = RandomGenerator.generateInt(randomRange);
+            operator = operators[RandomGenerator.generateInt(0, operators.length - 1)];
+            number1 = RandomGenerator.generateInt(0, randomRange);
+            number2 = RandomGenerator.generateInt(0, randomRange);
             correctAnswer = getResult(number1, number2, operator);
 
             System.out.println("Question: " + number1 + " " + operator + " " + number2);
