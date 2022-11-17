@@ -4,20 +4,19 @@ import java.util.Scanner;
 
 public class Progression {
 
-
-
     public static void start(int attempts) {
         var userName = Cli.start();
         var scanner = new Scanner(System.in);
-        var randomRange = 20; // for progression pitch generating
+        var randomLowRange = 1;
+        var randomHighRange = 20; // for progression pitch generating
         int correctAnswer;
 
         System.out.println("What number is missing in the progression?");
 
         for (var i = 0; i < attempts; i++) {
             var progressionLength = RandomGenerator.generateInt(5, 7); // the length would be in range 5 - 12 items
-            var progressionStart = RandomGenerator.generateInt(1, randomRange);
-            var progressionPitch = RandomGenerator.generateInt(1, randomRange);
+            var progressionStart = RandomGenerator.generateInt(randomLowRange, randomHighRange);
+            var progressionPitch = RandomGenerator.generateInt(randomLowRange, randomHighRange);
             var missedPosition = RandomGenerator.generateInt(0, progressionLength - 1);
 
             // System.out.println("Length: " + progressionLength + " Start: " + progressionStart

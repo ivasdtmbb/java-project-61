@@ -6,14 +6,15 @@ public class Prime {
 
     public static void start(int attempts) {
 
-        var randomRange = 4000;
+        var randomLowRange = 0;
+        var randomHighRange = 4000;
         var userName = Cli.start();
         var userInput = new Scanner(System.in);
 
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
         for (var i = 0; i < attempts; i++) {
-            int question = RandomGenerator.generateInt(0, randomRange);
+            int question = RandomGenerator.generateInt(randomLowRange, randomHighRange);
             var correctAnswerString = correctAnswer(question) ? "yes" : "no";
 
             System.out.println("Question: " + question);
