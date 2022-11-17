@@ -18,3 +18,6 @@ https://asciinema.org/a/8Clx8GAaV2lVVUdBbeUmwdblI
 
 ### Asciinema of a Progression game:
 https://asciinema.org/a/jO8OtNGttXS71ZMNgov41hFYT
+
+### Asciinema of a Prime game:
+https://asciinema.org/a/SU5auORWCa1dodTN3JNVU6hPX
