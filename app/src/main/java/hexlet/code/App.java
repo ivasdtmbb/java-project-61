@@ -4,7 +4,7 @@ package hexlet.code;
 public class App {
     public static void main(String[] args) {
         var userAnswer = UserDialog.start();
-        var numberOfAttempts = 3;
+        int numberOfAttempts = 3;
 
         switch (userAnswer) {
             case "1":
@@ -21,6 +21,9 @@ public class App {
                 break;
             case "5":
                 Progression.start(numberOfAttempts);
+                break;
+            case "6":
+                Prime.start(numberOfAttempts);
                 break;
             default:
                 break;
