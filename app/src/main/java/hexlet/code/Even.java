@@ -10,7 +10,7 @@ public class Even {
         Scanner scanner = new Scanner(System.in);
         var randomRange = 1000;
 
-        System.out.println("Answer 'yes' if number is even otherwise answer 'no'.");
+        System.out.println("Answer 'yes' if the number is even otherwise answer 'no'.");
 
         for (var i = 0; i < attempts; i++) {
 
