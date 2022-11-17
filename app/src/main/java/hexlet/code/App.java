@@ -18,6 +18,10 @@ public class App {
                 break;
             case "4":
                 GCD.start(numberOfAttempts);
+                break;
+            case "5":
+                Progression.start(numberOfAttempts);
+                break;
             default:
                 break;
         }
