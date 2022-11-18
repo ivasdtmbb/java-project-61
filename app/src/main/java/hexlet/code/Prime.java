@@ -1,29 +1,33 @@
 package hexlet.code;
 
+import java.util.Scanner;
+
 public class Prime {
 
-    public static void start(int attempts) {
+    public static void start(int attempts, Scanner userInput) {
 
         var randomLowRange = 0;
         var randomHighRange = 4000;
-        var userName = Cli.start();
+        var userName = Cli.start(userInput);
 
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
         for (var i = 0; i < attempts; i++) {
-            int isPrimeNumber = RandomGenerator.generateInt(randomLowRange, randomHighRange);
-            var correctAnswer = isCorrectAnswer(isPrimeNumber);
+            int questionNumber = RandomGenerator.generateInt(randomLowRange, randomHighRange);
+            var correctAnswer = getCorrectAnswer(questionNumber);
 
-            if (UserDialog.gameDialog(String.valueOf(isPrimeNumber), String.valueOf(correctAnswer), userName)) {
-                UserDialog.correct();
+            if (UserDialog.gameDialog(String.valueOf(questionNumber), String.valueOf(correctAnswer),
+                    userName, userInput)) {
+                UserDialog.printCorrect();
             } else {
                 return;
             }
         }
-        UserDialog.winner(userName);
+        UserDialog.printWinner(userName);
     }
 
-    public static String isCorrectAnswer(int number) {
+    // the function finds out whether passed value is a Prime number
+    public static String getCorrectAnswer(int number) {
         var index = 0;
 
         for (var i = number; i > 0; i--) {
