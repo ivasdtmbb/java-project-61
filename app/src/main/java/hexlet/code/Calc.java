@@ -4,41 +4,35 @@ import java.util.Scanner;
 
 public class Calc {
 
-    public static void start(int attempts) {
-        var userName = Cli.start();
-        var scanner = new Scanner(System.in);
+    public static void start(int attempts, Scanner userInput) {
+
         var randomLowRange = 0;
         var randomHighRange = 100;
-        int number1;
-        int number2;
-        int correctAnswer;
+        var userName = Cli.start(userInput);
+
         char[] operators = {'*', '-', '+'};
-        char operator;
 
         System.out.println("What is the result of the expression?");
 
         for (var i = 0; i < attempts; i++) {
-            operator = operators[RandomGenerator.generateInt(0, operators.length - 1)];
-            number1 = RandomGenerator.generateInt(randomLowRange, randomHighRange);
-            number2 = RandomGenerator.generateInt(randomLowRange, randomHighRange);
-            correctAnswer = getResult(number1, number2, operator);
+            var number1 = RandomGenerator.generateInt(randomLowRange, randomHighRange);
+            var number2 = RandomGenerator.generateInt(randomLowRange, randomHighRange);
+            var operator = operators[RandomGenerator.generateInt(0, operators.length - 1)];
 
-            System.out.println("Question: " + number1 + " " + operator + " " + number2);
-            System.out.print("Your answer: ");
-            int userAnswer = Integer.parseInt(scanner.next());
+            var question = getQuestionString(operator, number1, number2);
+            var correctAnswer = getCorrectAnswer(operator, number1, number2);
 
-            if (userAnswer == correctAnswer) {
-                System.out.println("Correct!");
+            if (UserDialog.gameDialog(String.valueOf(question), String.valueOf(correctAnswer),
+                    userName, userInput)) {
+                UserDialog.printCorrect();
             } else {
-                UserDialog.wrongAnswer(String.valueOf(userAnswer),
-                        String.valueOf(correctAnswer), userName);
                 return;
             }
         }
-        System.out.println("Congratulations, " + userName + "!");
+        UserDialog.printWinner(userName);
     }
 
-    public static int getResult(int number1, int number2, char operator) {
+    public static int getCorrectAnswer(char operator, int number1, int number2) {
         switch (operator) {
             case '*':
                 return number1 * number2;
@@ -50,5 +44,9 @@ public class Calc {
                 break;
         }
         return 0;
+    }
+
+    public static String getQuestionString(char operator, int number1, int number2) {
+        return String.valueOf(number1) + " " + operator + " " + String.valueOf(number2);
     }
 }
