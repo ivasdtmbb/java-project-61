@@ -1,46 +1,37 @@
 package hexlet.code;
 
 import org.apache.commons.lang3.ArrayUtils;
-
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class GCD {
-    public static void start(int attempts) {
-        var userName = Cli.start();
-        var scanner = new Scanner(System.in);
+    public static void start(int attempts, Scanner userInput) {
+
         var randomLowRange = 1;
         var randomHighRange = 100;
-        int number1;
-        int number2;
-        int correctAnswer;
+        var userName = Cli.start(userInput);
 
         System.out.println("Find the greatest common divisor of given numbers.");
 
         for (var i = 0; i < attempts; i++) {
-            number1 = RandomGenerator.generateInt(randomLowRange, randomHighRange);
-            number2 = RandomGenerator.generateInt(randomLowRange, randomHighRange);
-            correctAnswer = getResult(number1, number2);
+            var number1 = RandomGenerator.generateInt(randomLowRange, randomHighRange);
+            var number2 = RandomGenerator.generateInt(randomLowRange, randomHighRange);
 
-            System.out.println("Question: " + number1 + " " + number2);
-            System.out.print("Your answer: ");
-            int userAnswer = Integer.parseInt(scanner.next());
+            var question = getQuestionString(number1, number2);
+            var correctAnswer = getCorrectAnswer(number1, number2);
 
-            if (userAnswer == correctAnswer) {
-                System.out.println("Correct!");
+            if (UserDialog.gameDialog(String.valueOf(question), String.valueOf(correctAnswer),
+                    userName, userInput)) {
+                UserDialog.printCorrect();
             } else {
-                UserDialog.wrongAnswer(String.valueOf(userAnswer),
-                        String.valueOf(correctAnswer), userName);
                 return;
             }
         }
-        System.out.println("Congratulations, " + userName + "!");
+        UserDialog.printWinner(userName);
     }
 
-
-    // getResult function returns Greatest Common Denominator of two numbers
-
-    public static int getResult(int number1, int number2) {
+    // getCorrectAnswer function returns the Greatest Common Denominator of two numbers
+    public static int getCorrectAnswer(int number1, int number2) {
         int[] denominatorsOfNumber1 = getDenominators(number1);
         int[] denominatorsOfNumber2 = getDenominators(number2);
 
@@ -52,6 +43,7 @@ public class GCD {
         return 1;
     }
 
+    // getDenominators returns an array int[] of the number's denominators
     public static int[] getDenominators(int number) {
         int[] denominators = new int[number];
         var index = 0;
@@ -62,7 +54,10 @@ public class GCD {
                 index++;
             }
         }
-
         return Arrays.copyOfRange(denominators, 0, index);
+    }
+
+    public static String getQuestionString(int number1, int number2) {
+        return String.valueOf(number1) + " " + String.valueOf(number2);
     }
 }
