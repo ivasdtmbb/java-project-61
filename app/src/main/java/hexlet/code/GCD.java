@@ -57,6 +57,7 @@ public class GCD {
         return Arrays.copyOfRange(denominators, 0, index);
     }
 
+    // the function returns a String question
     public static String getQuestionString(int number1, int number2) {
         return String.valueOf(number1) + " " + String.valueOf(number2);
     }

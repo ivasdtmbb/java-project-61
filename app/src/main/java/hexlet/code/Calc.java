@@ -32,6 +32,7 @@ public class Calc {
         UserDialog.printWinner(userName);
     }
 
+    // the function evaluates an expression with passed parameters: operator and numbers
     public static int getCorrectAnswer(char operator, int number1, int number2) {
         switch (operator) {
             case '*':
@@ -46,6 +47,7 @@ public class Calc {
         return 0;
     }
 
+    // the function returns a String question
     public static String getQuestionString(char operator, int number1, int number2) {
         return String.valueOf(number1) + " " + operator + " " + String.valueOf(number2);
     }
