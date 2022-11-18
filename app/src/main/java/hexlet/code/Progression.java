@@ -4,63 +4,58 @@ import java.util.Scanner;
 
 public class Progression {
 
-    public static void start(int attempts) {
-        var userName = Cli.start();
-        var scanner = new Scanner(System.in);
-        var randomLowRange = 1;
-        var randomHighRange = 20; // for progression pitch generating
-        int correctAnswer;
+    public static void start(int attempts, Scanner userInput) {
+
+        var userName = Cli.start(userInput);
 
         System.out.println("What number is missing in the progression?");
 
         for (var i = 0; i < attempts; i++) {
-            var progressionLength = RandomGenerator.generateInt(5, 7); // the length would be in range 5 - 12 items
-            var progressionStart = RandomGenerator.generateInt(randomLowRange, randomHighRange);
-            var progressionPitch = RandomGenerator.generateInt(randomLowRange, randomHighRange);
-            var missedPosition = RandomGenerator.generateInt(0, progressionLength - 1);
 
-            // System.out.println("Length: " + progressionLength + " Start: " + progressionStart
-            //        + " Pitch: " + progressionPitch + " Missed pos.: " + missedPosition); // for testing
+            int[] progressionNumbers = generateProgression();
+            var missedPosition = RandomGenerator.generateInt(0, progressionNumbers.length - 1);
 
-            int[] newProgression = generateProgression(progressionStart,
-                    progressionPitch, progressionLength);
+            var question = getQuestionString(progressionNumbers, missedPosition);
+            var correctAnswer = progressionNumbers[missedPosition];
 
-            correctAnswer = newProgression[missedPosition];
-
-            System.out.println("Question: " + progressionToString(newProgression, missedPosition));
-            System.out.print("Your answer: ");
-            int userAnswer = Integer.parseInt(scanner.next());
-
-            if (userAnswer == correctAnswer) {
-                System.out.println("Correct!");
+            if (UserDialog.gameDialog(String.valueOf(question), String.valueOf(correctAnswer),
+                    userName, userInput)) {
+                UserDialog.printCorrect();
             } else {
-                UserDialog.wrongAnswer(String.valueOf(userAnswer),
-                        String.valueOf(correctAnswer), userName);
                 return;
             }
         }
-        System.out.println("Congratulations, " + userName + "!");
+        UserDialog.printWinner(userName);
     }
 
-    public static int[] generateProgression(int progressionStart, int progressionPitch,
-                                            int progressionLength) {
+    // generateProgression() function generates and returns an arithmetic progression
+    public static int[] generateProgression() {
+        var randomLowRange = 1;
+        var randomHighRange = 20; // for progression pitch generating
+        var progressionLengthFrom = 5;
+        var progressionLengthTo = 7;
+
+        // progression length would be in range 5 - 12 items
+        var progressionLength = RandomGenerator.generateInt(progressionLengthFrom, progressionLengthTo);
+        var progressionStartValue = RandomGenerator.generateInt(randomLowRange, randomHighRange);
+        var progressionPitch = RandomGenerator.generateInt(randomLowRange, randomHighRange);
+
         int[] newProgression = new int[progressionLength];
-        newProgression[0] = progressionStart;
+        newProgression[0] = progressionStartValue;
 
         for (var i = 1; i < progressionLength; i++) {
             newProgression[i] = newProgression[i - 1] + progressionPitch;
         }
-
-        // System.out.println(Arrays.toString(newProgression)); // for testing
         return newProgression;
     }
 
-    public static String progressionToString(int[] newProgression, int missedPosition) {
+    // getQuestionString returns a progression String with a missed number
+    public static String getQuestionString(int[] progression, int missedPosition) {
         var progressionString = new StringBuilder();
-        var prLength = newProgression.length;
-        for (var i = 0; i < prLength; i++) {
+        var progressionLength = progression.length;
+        for (var i = 0; i < progressionLength; i++) {
             if (i != missedPosition) {
-                progressionString.append(newProgression[i]);
+                progressionString.append(progression[i]);
                 progressionString.append(" ");
             } else {
                 progressionString.append(".. ");
@@ -69,3 +64,4 @@ public class Progression {
         return progressionString.toString();
     }
 }
+
