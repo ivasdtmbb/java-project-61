@@ -6,8 +6,8 @@ public class Even {
 
     public static void start(int attempts, Scanner userInput) {
 
-        var randomLowRange = 0;
-        var randomHighRange = 1000;
+        final int randomLowRange = 0;
+        final int randomHighRange = 1000;
         var userName = Cli.start(userInput);
 
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");

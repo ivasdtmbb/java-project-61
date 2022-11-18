@@ -7,7 +7,7 @@ public class App {
     public static void main(String[] args) {
         Scanner userInput = new Scanner(System.in);
         var userAnswer = UserDialog.start(userInput);
-        int numberOfAttempts = 3;
+        final int numberOfAttempts = 3;
 
         switch (userAnswer) {
             case "1":

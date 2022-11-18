@@ -30,10 +30,10 @@ public class Progression {
 
     // generateProgression() function generates and returns an arithmetic progression
     public static int[] generateProgression() {
-        var randomLowRange = 1;
-        var randomHighRange = 20; // for progression pitch generating
-        var progressionLengthFrom = 5;
-        var progressionLengthTo = 7;
+        final var randomLowRange = 1;
+        final var randomHighRange = 20; // for progression pitch generating
+        final var progressionLengthFrom = 5;
+        final var progressionLengthTo = 7;
 
         // progression length would be in range 5 - 12 items
         var progressionLength = RandomGenerator.generateInt(progressionLengthFrom, progressionLengthTo);

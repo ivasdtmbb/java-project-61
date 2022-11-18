@@ -6,8 +6,8 @@ public class Calc {
 
     public static void start(int attempts, Scanner userInput) {
 
-        var randomLowRange = 0;
-        var randomHighRange = 100;
+        final int randomLowRange = 0;
+        final int randomHighRange = 100;
         var userName = Cli.start(userInput);
 
         char[] operators = {'*', '-', '+'};

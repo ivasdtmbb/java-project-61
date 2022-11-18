@@ -7,8 +7,8 @@ import java.util.Scanner;
 public class GCD {
     public static void start(int attempts, Scanner userInput) {
 
-        var randomLowRange = 1;
-        var randomHighRange = 100;
+        final int randomLowRange = 1;
+        final int randomHighRange = 100;
         var userName = Cli.start(userInput);
 
         System.out.println("Find the greatest common divisor of given numbers.");

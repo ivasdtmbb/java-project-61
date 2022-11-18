@@ -6,8 +6,8 @@ public class Prime {
 
     public static void start(int attempts, Scanner userInput) {
 
-        var randomLowRange = 0;
-        var randomHighRange = 4000;
+        final var randomLowRange = 0;
+        final var randomHighRange = 4000;
         var userName = Cli.start(userInput);
 
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
