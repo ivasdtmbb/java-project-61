@@ -4,40 +4,30 @@ import java.util.Scanner;
 
 public class Even {
 
-    public static void start(int attempts) {
-        var userName = Cli.start();
-        String correctAnswer;
-        Scanner scanner = new Scanner(System.in);
-        var randomRange = 1000;
+    public static void start(int attempts, Scanner userInput) {
+
+        var randomLowRange = 0;
+        var randomHighRange = 1000;
+        var userName = Cli.start(userInput);
 
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
         for (var i = 0; i < attempts; i++) {
+            var questionNumber = RandomGenerator.generateInt(randomLowRange, randomHighRange);
+            var correctAnswer = getCorrectAnswer(questionNumber);
 
-            var randNumber = RandomGenerator.generateLong(randomRange);
-
-            correctAnswer = getResult(randNumber);
-
-            System.out.println("Question: " + randNumber);
-            System.out.print("Your Answer: ");
-            String userAnswer = scanner.next();
-
-            if (userAnswer.equalsIgnoreCase(correctAnswer)) {
-                System.out.println("Correct!");
+            if (UserDialog.gameDialog(String.valueOf(questionNumber), String.valueOf(correctAnswer),
+                    userName, userInput)) {
+                UserDialog.printCorrect();
             } else {
-                UserDialog.wrongAnswer(userName, correctAnswer, userName);
                 return;
             }
         }
-
-        System.out.println("Congratulations, " + userName + "!");
+        UserDialog.printWinner(userName);
     }
 
-    public static String getResult(long randNumber) {
-        if (randNumber % 2 == 0) {
-            return "yes";
-        } else {
-            return "no";
-        }
+    // the function finds out whether passed value is an Even number
+    public static String getCorrectAnswer(int number) {
+        return number % 2 == 0 ? "yes" : "no";
     }
 }
