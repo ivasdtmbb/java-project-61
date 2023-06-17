@@ -4,6 +4,9 @@
 ### Maintainability:
 <a href="https://codeclimate.com/github/ivasdtmbb/java-project-61/maintainability"><img src="https://api.codeclimate.com/v1/badges/8b95aea90a0624924fb8/maintainability" /></a>
 
+### Asciinema of an EVEN game:
+https://asciinema.org/a/591947
+
 ###
 gradle installDist
 gradle run
