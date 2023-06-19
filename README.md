@@ -7,6 +7,9 @@
 ### Asciinema of an EVEN game:
 https://asciinema.org/a/591947
 
+### Asciinema of a CALC game:
+https://asciinema.org/a/592153
+
 ###
 gradle installDist
 gradle run
