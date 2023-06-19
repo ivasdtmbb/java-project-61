@@ -1,4 +1,6 @@
 package hexlet.code;
+
+
 import java.util.Scanner;
 
 public class App {
@@ -6,7 +8,7 @@ public class App {
     public static void main(String[] args) {
         Scanner userInput = new Scanner(System.in);
         var numberOfAttempts = 3;
-        var userAnswer = UserDialog.start(userInput);
+        var userAnswer = Engine.menu(userInput);
 
         switch (userAnswer) {
             case "1":
@@ -15,6 +17,10 @@ public class App {
                 break;
             case "2":
                 Even.start(userInput, numberOfAttempts);
+                userInput.close();
+                break;
+            case "3":
+                Calc.start(userInput, numberOfAttempts);
                 userInput.close();
                 break;
             default:
