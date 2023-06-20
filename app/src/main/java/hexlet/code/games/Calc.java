@@ -51,5 +51,4 @@ public class Calc {
     private static String generateQuestionString(int number1, int number2, char operator) {
         return String.valueOf(number1) + " " + operator + " " + String.valueOf(number2);
     }
-
 }

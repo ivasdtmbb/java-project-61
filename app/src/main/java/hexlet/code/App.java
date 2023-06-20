@@ -23,6 +23,10 @@ public class App {
                 Calc.start(userInput, numberOfAttempts);
                 userInput.close();
                 break;
+            case "4":
+                GCD.start(userInput, numberOfAttempts);
+                userInput.close();
+                break;
             default:
                 break;
         }
