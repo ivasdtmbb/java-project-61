@@ -10,6 +10,9 @@ https://asciinema.org/a/591947
 ### Asciinema of a CALC game:
 https://asciinema.org/a/592153
 
+### Asciinema of a GCD game:
+https://asciinema.org/a/592316
+
 ###
 gradle installDist
 gradle run
