@@ -13,11 +13,12 @@ public class Progression {
         printGameInstructions();
 
         for (var i = 0; i < attempts; i++) {
-            int[] progressionElements = generateProgressionElements(progressionLength, randomLowRange, randomHighRange);
+            var firstElement = RandGen.generateInt(randomLowRange, randomHighRange);
+            var pitch = RandGen.generateInt(randomLowRange, randomHighRange);
             var missedElementPosition = RandGen.generateInt(randomLowRange, progressionLength - 1);
 
-            String correctAnswer = String.valueOf(getCorrectAnswer(progressionElements, missedElementPosition));
-            String question = generateQuestionString(progressionElements, missedElementPosition);
+            String correctAnswer = String.valueOf(getCorrectAnswer(firstElement, pitch, missedElementPosition));
+            String question = generateQuestionString(firstElement, pitch, progressionLength, missedElementPosition);
 
             var userAnswer = Engine.getUserAnswer(question, userInput);
 
@@ -34,31 +35,20 @@ public class Progression {
         System.out.println("What number is missing in the progression?");
     }
 
-    private static int getCorrectAnswer(int[] progressionElements, int missedElementPosition) {
-        return progressionElements[missedElementPosition];
+    private static int getCorrectAnswer(int firstElement, int pitch, int missedElementPosition) {
+        return (firstElement + missedElementPosition * pitch);
     }
 
-    private static String generateQuestionString(int[] progressionElements, int missedElementPosition) {
+    private static String generateQuestionString(int firstEl, int pitch, int progressionLen, int missedElementPos) {
         var question = new StringBuilder();
-        for (int i = 0; i < progressionElements.length; i++) {
-            if (i == missedElementPosition) {
+        for (int i = 0; i < progressionLen; i++) {
+            if (i == missedElementPos) {
                 question.append(".. ");
             } else {
-                question.append(String.valueOf(progressionElements[i]) + " ");
+                question.append(String.valueOf(firstEl + i * pitch) + " ");
             }
         }
         return question.toString();
-    }
-
-    private static int[] generateProgressionElements(int progressionLength, int randomLowRange, int randomHighRange) {
-        var firstElement = RandGen.generateInt(randomLowRange, randomHighRange);
-        var pitch = RandGen.generateInt(randomLowRange, randomHighRange);
-        int[] progression = new int[progressionLength];
-
-        for (int i = 0; i < progressionLength; i++) {
-            progression[i] = firstElement + (i * pitch);
-        }
-        return progression;
     }
 }
 
