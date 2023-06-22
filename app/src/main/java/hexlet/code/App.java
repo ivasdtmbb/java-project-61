@@ -27,6 +27,10 @@ public class App {
                 GCD.start(userInput, numberOfAttempts);
                 userInput.close();
                 break;
+            case "5":
+                Progression.start(userInput, numberOfAttempts);
+                userInput.close();
+                break;
             default:
                 break;
         }

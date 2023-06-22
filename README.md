@@ -13,6 +13,9 @@ https://asciinema.org/a/592153
 ### Asciinema of a GCD game:
 https://asciinema.org/a/592316
 
+### Asciinema of a Progression game:
+https://asciinema.org/a/592631
+
 ###
 gradle installDist
 gradle run
