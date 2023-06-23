@@ -3,26 +3,15 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    public static String menu(Scanner userInput) {
-        System.out.println("Please enter the game number and press Enter.");
-        System.out.print("1 - Greet\n"
-                + "2 - Even\n"
-                + "3 - Calc\n"
-                + "4 - GCD\n"
-                + "5 - Progression\n"
-                + "6 - Prime\n"
-                + "0 - Exit\n");
-
-        System.out.print("Your choice: ");
-        String choise = userInput.next();
-        System.out.println();
-
-        return choise;
+    public static void runGamesEngine() {
+        Scanner userInput = new Scanner(System.in);
+        var gameChoice = Engine.menu(userInput);
+        chooseGame(userInput, gameChoice);
     }
-
-    public static void processUserAnswer(Scanner userInput, String userAnswer) {
+    public static void chooseGame(Scanner userInput, String gameChoice) {
         final int numberOfAttempts = 3;
-        switch (userAnswer) {
+
+        switch (gameChoice) {
             case "1":
                 Cli.start(userInput);
                 userInput.close();
@@ -52,6 +41,22 @@ public class Engine {
             default:
                 break;
         }
+    }
+    public static String menu(Scanner userInput) {
+        System.out.println("Please enter the game number and press Enter.");
+        System.out.print("1 - Greet\n"
+                + "2 - Even\n"
+                + "3 - Calc\n"
+                + "4 - GCD\n"
+                + "5 - Progression\n"
+                + "6 - Prime\n"
+                + "0 - Exit\n");
+
+        System.out.print("Your choice: ");
+        String choise = userInput.next();
+        System.out.println();
+
+        return choise;
     }
 
     public static String getUserAnswer(String question, Scanner userInput) {
