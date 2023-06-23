@@ -4,8 +4,6 @@
 ### Maintainability:
 <a href="https://codeclimate.com/github/ivasdtmbb/java-project-61/maintainability"><img src="https://api.codeclimate.com/v1/badges/216273353a73580a9164/maintainability" /></a>
 
-### Test Coverage:
-<a href="https://codeclimate.com/github/ivasdtmbb/java-project-61/test_coverage"><img src="https://api.codeclimate.com/v1/badges/216273353a73580a9164/test_coverage" /></a>
 
 ### Asciinema of an EVEN game:
 https://asciinema.org/a/591947
