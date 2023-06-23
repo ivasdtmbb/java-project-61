@@ -16,9 +16,6 @@ https://asciinema.org/a/592316
 ### Asciinema of a Progression game:
 https://asciinema.org/a/592631
 
-###
-gradle installDist
-gradle run
-gradle clean
+### Asciinema of a Prime game:
+https://asciinema.org/a/592824
 
-make run-dist
