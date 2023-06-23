@@ -20,6 +20,40 @@ public class Engine {
         return choise;
     }
 
+    public static void processUserAnswer(Scanner userInput, String userAnswer) {
+        final int numberOfAttempts = 3;
+        switch (userAnswer) {
+            case "1":
+                Cli.start(userInput);
+                userInput.close();
+                break;
+            case "2":
+                Even.start(userInput, numberOfAttempts);
+                userInput.close();
+                break;
+            case "3":
+                Calc.start(userInput, numberOfAttempts);
+                userInput.close();
+                break;
+            case "4":
+                GCD.start(userInput, numberOfAttempts);
+                userInput.close();
+                break;
+            case "5":
+                Progression.start(userInput, numberOfAttempts);
+                userInput.close();
+                break;
+            case "6":
+                Prime.start(userInput, numberOfAttempts);
+                userInput.close();
+                break;
+            case "0":
+                break;
+            default:
+                break;
+        }
+    }
+
     public static String getUserAnswer(String question, Scanner userInput) {
         System.out.println("Question: " + question);
         System.out.print("Your answer: ");
