@@ -14,33 +14,26 @@ public class Engine {
         switch (gameChoice) {
             case "1":
                 Cli.start(userInput);
-                userInput.close();
                 break;
             case "2":
                 Even.start(userInput, numberOfAttempts);
-                userInput.close();
                 break;
             case "3":
                 Calc.start(userInput, numberOfAttempts);
-                userInput.close();
                 break;
             case "4":
                 GCD.start(userInput, numberOfAttempts);
-                userInput.close();
                 break;
             case "5":
                 Progression.start(userInput, numberOfAttempts);
-                userInput.close();
                 break;
             case "6":
                 Prime.start(userInput, numberOfAttempts);
-                userInput.close();
-                break;
-            case "0":
                 break;
             default:
                 break;
         }
+        userInput.close();
     }
     public static String menu(Scanner userInput) {
         System.out.println("Please enter the game number and press Enter.");

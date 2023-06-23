@@ -5,13 +5,11 @@ import java.util.Scanner;
 public class Even {
     public static void start(Scanner userInput, int attempts) {
         var userName = Cli.start(userInput);
-        final int randomLowRange = 0;
-        final int randomHighRange = 1000;
 
         printGameInstructions();
 
         for (var i = 0; i < attempts; i++) {
-            var randomNumber = RandGen.generateInt(randomLowRange, randomHighRange);
+            var randomNumber = RandGen.generateInt();
 
             var correctAnswer = getCorrectAnswer(randomNumber);
             String question = generateQuestionString(randomNumber);
