@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class Even {
     public static void start(Scanner userInput, int attempts) {
         var userName = Cli.start(userInput);
-        var randomLowRange = 0;
-        var randomHighRange = 1000;
+        final int randomLowRange = 0;
+        final int randomHighRange = 1000;
 
         printGameInstructions();
 

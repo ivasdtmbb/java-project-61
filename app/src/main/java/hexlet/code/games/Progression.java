@@ -6,9 +6,9 @@ public class Progression {
 
     public static void start(Scanner userInput, int attempts) {
         var userName = Cli.start(userInput);
-        var randomLowRange = 0;
-        var randomHighRange = 20;
-        var progressionLength = 10;
+        final int randomLowRange = 0;
+        final int randomHighRange = 20;
+        final int progressionLength = 10;
 
         printGameInstructions();
 

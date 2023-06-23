@@ -6,8 +6,8 @@ import java.util.Scanner;
 public class GCD {
     public static void start(Scanner userInput, int attempts) {
         var userName = Cli.start(userInput);
-        var randomLowRange = 0;
-        var randomHighRange = 100;
+        final int randomLowRange = 0;
+        final int randomHighRange = 100;
 
         printGameInstructions();
 
